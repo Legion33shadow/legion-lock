@@ -1,0 +1,10 @@
+# pre-commit : vérifie le lockfile à chaque commit qui touche la config MCP ou le lockfile.
+repos:
+  - repo: local
+    hooks:
+      - id: mcp-tools-lock
+        name: mcp-tools-lock (LEGION)
+        entry: python3 -I -S tools/legion-lock/legion_lock.py check
+        language: system
+        pass_filenames: false
+        files: '(^|/)(\.mcp-tools\.lock\.json|\.mcp\.json|mcp.*\.json)$'

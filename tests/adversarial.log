@@ -1,0 +1,16 @@
+OK  épinglage honnête (feuille 16044, tête 17359) via le proxy code=0 ÉPINGLÉ io.guestgraph/mental-model : 14 outils, empreinte 413eda097250c5c0… (feuille 16044, observée 2026-10-1
+OK  check honnête : dérive réelle détectée                     code=1 RÉSULTAT : DÉRIVE sur 1 serveur(s)
+OK  journal ment : empreinte courante = l'approuvée (cacher la dérive) code=2 ÉCHEC : io.guestgraph/mental-model : preuve REJETÉE (record_signature, inclusion)
+OK  journal ment : server_id changé                            code=2 ÉCHEC : io.guestgraph/mental-model : preuve REJETÉE (record_signature, inclusion)
+OK  journal ment : chemin d'inclusion altéré                   code=2 ÉCHEC : io.guestgraph/mental-model : preuve REJETÉE (inclusion)
+OK  journal ment : racine de la tête altérée                   code=2 ÉCHEC : io.guestgraph/mental-model : preuve REJETÉE (head_signature, inclusion)
+OK  archive ment : définitions d'outils altérées               code=2 ÉCHEC : archive /tools/413eda097250… : le contenu ne redonne pas l'empreinte signée
+OK  journal ment : preuve de cohérence altérée (histoire réécrite) code=2 ÉCHEC : io.guestgraph/mental-model : HISTORIQUE RÉÉCRIT — la tête 17686 n'étend pas la tête 17359 de votre épi
+OK  journal ment : trousseau d'une autre racine                code=2 ÉCHEC : trousseau : la 1re entrée n'a pas l'empreinte racine épinglée a7c6a35b1c2c81d5…
+OK  lockfile : enregistrement épinglé altéré                   code=2 ÉCHEC : io.guestgraph/mental-model : preuve REJETÉE (record_signature, inclusion)
+OK  lockfile : état approuvé ≠ enregistrement signé            code=2 ÉCHEC : io.guestgraph/mental-model : l'état « approuvé » du lockfile ne correspond pas à l'enregistrement sign
+OK  lockfile : clé publique d'une sous-clé remplacée           code=2 ÉCHEC : donnée invalide (ValueError: keyring : chaîne rompue à l'entrée 1)
+OK  lockfile : auto-signature de la racine altérée (sans effet attendu : racine approuvée par son empreinte) code=0 RÉSULTAT : 1 épinglage(s) prouvé(s) hors ligne contre la racine a7c6a35b1c2c81d5…
+OK  lockfile : racine différente                               code=2 ÉCHEC : /tmp/tmp7gkatl63/l.json : empreinte racine différente de celle de cet outil
+OK  lockfile intact : verify hors ligne                        code=0 RÉSULTAT : 1 épinglage(s) prouvé(s) hors ligne contre la racine a7c6a35b1c2c81d5…
+TOTAL 15 cas, 15 OK, 0 BUG

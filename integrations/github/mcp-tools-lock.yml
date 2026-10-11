@@ -1,0 +1,16 @@
+# .github/workflows/mcp-tools-lock.yml — bloque le merge si un serveur MCP épinglé a changé ses outils.
+# Prérequis : legion_lock.py + vendor/ copiés dans tools/legion-lock/ du dépôt (aucun paquet externe), lockfile commité.
+name: mcp-tools-lock
+on:
+  pull_request:
+  schedule: [{cron: "17 6 * * *"}]     # aussi chaque jour : une dérive peut arriver sans commit
+permissions: {contents: read}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier les preuves épinglées (hors réseau)
+        run: python3 -I -S tools/legion-lock/legion_lock.py verify
+      - name: Comparer au journal public (échoue si dérive)
+        run: python3 -I -S tools/legion-lock/legion_lock.py check

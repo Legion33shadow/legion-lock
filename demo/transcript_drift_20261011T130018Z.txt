@@ -1,0 +1,41 @@
++ ls -A
++ python3 -I -S ./legion_lock.py add io.guestgraph/mental-model --at-leaf 16044
+ÉPINGLÉ io.guestgraph/mental-model : 14 outils, empreinte 413eda097250c5c0… (feuille 16044, observée 2026-10-10T10:02:51Z), preuve vérifiée contre la racine a7c6a35b1c2c81d5…
++ python3 -I -S ./legion_lock.py add ai.daystruct.api/daystruct --at-leaf 121
+ÉPINGLÉ ai.daystruct.api/daystruct : 23 outils, empreinte 6dea4d5e4ceea920… (feuille 121, observée 2026-10-08T23:21:43Z), preuve vérifiée contre la racine a7c6a35b1c2c81d5…
++ python3 -I -S ./legion_lock.py check
+DÉRIVE    ai.daystruct.api/daystruct  (épinglé feuille 121 ; actuel feuille 14516, observé 2026-10-09T09:00:15Z ; tête signée 17686, append-only vérifié)
+   outil plan_project_development : AJOUTÉ — « Get a small stage-specific capability selection and concrete next actions from a caller-approved project projection. Kee »
+DÉRIVE    io.guestgraph/mental-model  (épinglé feuille 16044 ; actuel feuille 17659, observé 2026-10-11T09:58:47Z ; tête signée 17686, append-only vérifié)
+   outil diagram : description changée
+       -A picture of the model as Mermaid, from edges or schemas
+       -Use to show connections; for edge data use list_references
+       -Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow or lifecycle takes a context's `id` for its aggregates; organization without `id` draws the
+       +A picture of the model as Mermaid; for edge data use list_references
+       +Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow and lifecycle take a context's `id`; organization without `id` draws the company; system is
+   outil diagram : inputSchema changé (2 chemin(s)) : ~ properties.id.description, ~ properties.shape.enum
+RÉSULTAT : DÉRIVE sur 2 serveur(s)
++ echo EXIT_CHECK=1
+EXIT_CHECK=1
++ unshare -rn python3 -I -S ./legion_lock.py verify
+OK ai.daystruct.api/daystruct : feuille 121 incluse dans la tête signée 17686 ; 23 outils, empreinte 6dea4d5e4ceea920… (hors ligne)
+OK io.guestgraph/mental-model : feuille 16044 incluse dans la tête signée 17686 ; 14 outils, empreinte 413eda097250c5c0… (hors ligne)
+RÉSULTAT : 2 épinglage(s) prouvé(s) hors ligne contre la racine a7c6a35b1c2c81d5…
++ echo EXIT_VERIFY_HORS_RESEAU=0
+EXIT_VERIFY_HORS_RESEAU=0
++ python3 -c 'import json;d=json.load(open('\''.mcp-tools.lock.json'\''));d['\''servers'\'']['\''io.guestgraph/mental-model'\'']['\''approved'\'']['\''tools'\'']['\''diagram'\'']='\''0'\''*64;json.dump(d,open('\''.mcp-tools.lock.json'\'','\''w'\''))'
++ python3 -I -S ./legion_lock.py verify
+ÉCHEC : io.guestgraph/mental-model : l'état « approuvé » du lockfile ne correspond pas à l'enregistrement signé
+OK ai.daystruct.api/daystruct : feuille 121 incluse dans la tête signée 17686 ; 23 outils, empreinte 6dea4d5e4ceea920… (hors ligne)
++ echo EXIT_VERIFY_LOCKFILE_FALSIFIE=2
+EXIT_VERIFY_LOCKFILE_FALSIFIE=2
++ rm .mcp-tools.lock.json
++ python3 -I -S ./legion_lock.py add io.guestgraph/mental-model
+ÉPINGLÉ io.guestgraph/mental-model : 14 outils, empreinte 2a20ce818dfeb0ad… (feuille 17659, observée 2026-10-11T09:58:47Z), preuve vérifiée contre la racine a7c6a35b1c2c81d5…
++ python3 -I -S ./legion_lock.py check
+CONFORME  io.guestgraph/mental-model  (épinglé feuille 17659 ; actuel feuille 17659, observé 2026-10-11T09:58:47Z ; tête signée 17686, append-only vérifié)
+RÉSULTAT : aucune dérive
++ echo EXIT_CHECK_ETAT_COURANT_APPROUVE=0
+EXIT_CHECK_ETAT_COURANT_APPROUVE=0
++ set +x
+dossier : /tmp/tmp.H2ZhUgebVY

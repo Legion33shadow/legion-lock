@@ -1,0 +1,63 @@
+++ git init -q .
+++ mkdir -p tools/legion-lock
+++ cp -r ./legion_lock.py ./vendor ./integrations tools/legion-lock/
+++ python3 -I -S tools/legion-lock/legion_lock.py add io.guestgraph/mental-model --at-leaf 16044
+ÉPINGLÉ io.guestgraph/mental-model : 14 outils, empreinte 413eda097250c5c0… (feuille 16044, observée 2026-10-10T10:02:51Z), preuve vérifiée contre la racine a7c6a35b1c2c81d5…
+++ : '--- étapes GitHub Actions rejouées en local'
+++ python3 -I -S tools/legion-lock/legion_lock.py verify
+OK io.guestgraph/mental-model : feuille 16044 incluse dans la tête signée 17686 ; 14 outils, empreinte 413eda097250c5c0… (hors ligne)
+RÉSULTAT : 1 épinglage(s) prouvé(s) hors ligne contre la racine a7c6a35b1c2c81d5…
+++ echo STEP1_EXIT=0
+STEP1_EXIT=0
+++ python3 -I -S tools/legion-lock/legion_lock.py check
+++ echo 'STEP2_EXIT=1 (1 attendu : le job échouerait)'
+STEP2_EXIT=1 (1 attendu : le job échouerait)
+++ : '--- hook git pre-commit'
+++ cp tools/legion-lock/integrations/pre-commit/pre-commit.sh .git/hooks/pre-commit
+++ chmod +x .git/hooks/pre-commit
+++ git add .mcp-tools.lock.json
+++ git -c user.name=t -c user.email=t@t commit -q -m pin
+DÉRIVE    io.guestgraph/mental-model  (épinglé feuille 16044 ; actuel feuille 17659, observé 2026-10-11T09:58:47Z ; tête signée 17686, append-only vérifié)
+   outil diagram : description changée
+       -A picture of the model as Mermaid, from edges or schemas
+       -Use to show connections; for edge data use list_references
+       -Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow or lifecycle takes a context's `id` for its aggregates; organization without `id` draws the
+       +A picture of the model as Mermaid; for edge data use list_references
+       +Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow and lifecycle take a context's `id`; organization without `id` draws the company; system is
+   outil diagram : inputSchema changé (2 chemin(s)) : ~ properties.id.description, ~ properties.shape.enum
+RÉSULTAT : DÉRIVE sur 1 serveur(s)
+mcp-tools-lock : dérive ou preuve invalide — commit refusé
+++ echo 'COMMIT_EXIT=1 (refus attendu)'
+COMMIT_EXIT=1 (refus attendu)
+++ rm .mcp-tools.lock.json
+++ python3 -I -S tools/legion-lock/legion_lock.py add io.guestgraph/mental-model
+++ git add .mcp-tools.lock.json
+++ git -c user.name=t -c user.email=t@t commit -q -m pin
+CONFORME  io.guestgraph/mental-model  (épinglé feuille 17659 ; actuel feuille 17659, observé 2026-10-11T09:58:47Z ; tête signée 17686, append-only vérifié)
+RÉSULTAT : aucune dérive
+++ echo 'COMMIT_EXIT=0 (accepté attendu)'
+COMMIT_EXIT=0 (accepté attendu)
+++ : '--- hook Claude Code (entrée PreToolUse simulée)'
+++ rm .mcp-tools.lock.json
+++ python3 -I -S tools/legion-lock/legion_lock.py add io.guestgraph/mental-model --at-leaf 16044
+++ CLAUDE_PROJECT_DIR=/tmp/demo-repo
+++ echo '{"hook_event_name":"PreToolUse","tool_name":"mcp__legion-verify__get_checkpoint","tool_input":{}}'
+++ tools/legion-lock/integrations/claude-code/legion_lock_hook.sh
+legion-lock : appel MCP bloqué — les outils d'un serveur épinglé ont changé ou la preuve est invalide :
+DÉRIVE    io.guestgraph/mental-model  (épinglé feuille 16044 ; actuel feuille 17659, observé 2026-10-11T09:58:47Z ; tête signée 17686, append-only vérifié)
+   outil diagram : description changée
+       -A picture of the model as Mermaid, from edges or schemas
+       -Use to show connections; for edge data use list_references
+       -Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow or lifecycle takes a context's `id` for its aggregates; organization without `id` draws the
+       +A picture of the model as Mermaid; for edge data use list_references
+       +Input: `shape`; `id`, `domain` or `type` narrow it; aggregate, flow and lifecycle take a context's `id`; organization without `id` draws the company; system is
+   outil diagram : inputSchema changé (2 chemin(s)) : ~ properties.id.description, ~ properties.shape.enum
+RÉSULTAT : DÉRIVE sur 1 serveur(s)
+++ echo 'HOOK_EXIT=2 (2 attendu = appel bloqué)'
+HOOK_EXIT=2 (2 attendu = appel bloqué)
+++ echo '{}'
+++ CLAUDE_PROJECT_DIR=/tmp/demo-repo
+++ tools/legion-lock/integrations/claude-code/legion_lock_hook.sh
+++ echo 'HOOK_EXIT_CACHE=2 (2, depuis le cache)'
+HOOK_EXIT_CACHE=2 (2, depuis le cache)
+++ set +x
